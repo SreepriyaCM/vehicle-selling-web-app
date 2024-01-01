@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="home">
+        <div class="register">
+            <form class="form1" method="get" action="{% url 'search' %}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_this">
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+            </form>
+        </div>
+        <div class="background">
+            <h1>DREAM IT , DRIVE IT</h1>
+            <h2>Shop From 450+ Vehicles , in Various Cities among India</h2>
+            <h3>KEY FEATURES</h3>
+            <div class="features">
+            <ul>
+                <li><h5>Vast Selection</h5></li>
+                <li><h5>Low Prices</h5></li>
+            </ul>
+            <ul>
+                <li><h5>Hassle Free Loan & Insurance</h5></li>
+                <li><h5>Return & Warranty</h5></li>
+            </ul>
+            <ul>
+                <li><h5>Doorstep Delivery</h5></li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="best-title">
+            <h2>Best Selling Vehicles</h2>
+            <a href="{% url 'allvehicles' %}"><p>View all vehicles</p></a>
+        </div>
+        <div class="best">
+        {% for vehicle in allvehicle %}
+        {% if vehicle.best_selling %}
+            <div class="bestseller">
+                <h6>Model : {{vehicle.name}}</h6>
+                <h6>Year :{{vehicle.manufacture_year}}</h6>
+                <h6>Original Price : {{vehicle.base_price}}Rs.</h6>
+                <div class="card-img">
+                    <a href="{% url 'details' vehicle.id %}"><img src="/home/{{vehicle.image}}"></a>
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+
+        <div class="items">
+            <h2>Shop By Category</h2>
+            <div class="item">
+            {% for category in categories %}
+                <div class="card">
+                    <a href="{% url 'category' category.name %}"><img src="/home/{{category.category_img}}"></a>
+                    <h5>{{category.name}}</h5>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="offers">
+            <h2>Hot Deals</h2>
+            <div class="card-view">
+                <div class="col-1">
+                    <h6 style="color: rgb(11, 11, 11)">Discount on Top Selling Pre-Owned Cars</h6>
+                    <h1 style="color: rgb(235, 85, 30);">Up To 50,000 Rs Off</h1>
+                    <h6>Limited Period offer</h6>
+                </div>
+                <div class="col-2">
+                    <h6 style="color: rgb(11, 11, 11)">Offer on Top Selling Pre-Owned Scooters</h6>
+                    <h1 style="color: rgb(235, 85, 30);">Up To 1,500 Rs Off</h1>
+                    <h6>Limited Period offer</h6>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}

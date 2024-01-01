@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="confirm">
+    <h4>Are you sure you want to delete {{dlt_vehicle.name}}</h4>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes,Delete" class="btn">
+    </form>
+    <a href="{% url 'categories' %}"><button class="btn">No, Go back</button></a>
+</div>
+{% endblock %}

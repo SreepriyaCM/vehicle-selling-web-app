@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="alldetails">
+        <div class="details">
+            <h6>{{vehicle.category}}</h6>
+            <h6>Model : {{vehicle.name}}</h6>
+            <h6>Mileage : {{vehicle.mileage}}</h6>
+            <h6>Distance Covered : {{vehicle.distance_covered}}</h6>
+            <h6>Fuel Type : {{vehicle.fuel_type}}</h6>
+            <h6>Manufacture year : {{vehicle.manufacture_year}}</h6>
+            <h6>Original Price : {{vehicle.base_price}}</h6>
+            
+        </div>
+        <div class="images">
+            <img src="/home/{{vehicle.image}}">
+        </div>
+        <div class="price">
+            <h6>{{vehicle.name}} {{vehicle.manufacture_year}}</h6>
+            <h4>Selling Price : {{adjusted_price}}Rs.</h4>
+            <button>BUY</button>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-1">
+    {% for vehcle in categor %}
+        <div class="container-2">
+            <h6>Model : {{vehcle.name}}</h6>
+            <h6>Year :{{vehcle.manufacture_year}}</h6>
+            <h6>Original Price : {{vehcle.base_price}}Rs</h6>
+            <div class="card-img">
+                <a href="{% url 'details' vehcle.id %}"><img src="/home/{{vehcle.image}}"></a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

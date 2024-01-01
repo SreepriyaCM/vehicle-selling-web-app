@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if profile %}
+    <div class="addform">
+        <h2>Your Profile</h2>
+        <h6>Name: {{ profile.name }}</h6>
+        <h6>Email ID: {{ profile.email }}</h6>
+        <h6>Phone No.: {{ profile.mob_no }}</h6>
+        <h6>Address: {{ profile.address }}</h6>
+        <a href="{% url 'logout'  %}"><button class="btn">Logout</button></a>
+    </div>
+    {% endif %}
+{% endblock %}

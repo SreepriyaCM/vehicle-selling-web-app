@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-3">
+<h2>Registration Form</h2>
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Username</label>
+      {{form.username}}
+      {{form.username.errors}}
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Email</label>
+      {{form.email}}
+      {{form.email.errors}}
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Enter password</label>
+      {{form.password1}}
+      {{form.password1.errors}}
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Confirm password</label>
+      {{form.password2}}
+      {{form.password2.errors}}
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Firstname</label>
+      {{form.first_name}}
+    </div>
+    <div class="col-md-6">
+      <label for="inputState" class="form-label">Lastname</label>
+      {{form.last_name}}
+    </div>
+    <div class="col-6">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

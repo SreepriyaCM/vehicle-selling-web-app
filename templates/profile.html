@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome, {{ user.username }}!</h1>
+
+    {% if profile %}
+        <h2>Your Profile</h2>
+        <!-- Display other profile details -->
+
+        <h2>Edit Profile</h2>
+        <form method="post" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <p>Name: {{ form.name }}</p>
+            <p>Email ID: {{ form.email }}</p>
+            <p>Phone No.: {{ form.mob_no }}</p>
+            <p>Address: {{ form.address }}</p>
+            <button type="submit">Save Changes</button>
+        </form>
+    {% else %}
+        <h2>Add Profile</h2>
+        <form method="post" action="{% url 'profile' %}" class="addform">
+            {% csrf_token %}
+            <p>Name: {{ form.name }}</p>
+            <p>Email ID: {{ form.email }}</p>
+            <p>Phone No.: {{ form.mob_no }}</p>
+            <p>Address: {{ form.address }}</p>
+            <button type="submit">Create Profile</button>
+        </form>
+    {% endif %}
+{% endblock %}

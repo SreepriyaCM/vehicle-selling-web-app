@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="category">
+    
+<h1>All Categories </h1>
+<div class="categories">
+    {% for category in categories %}
+        <div class="vehicles">
+            <a href="{% url 'category' category.name %}"><img src="/home/{{category.category_img}}"></a>
+            <h5>{{category.name}}</h5>
+            {% if user.is_superuser %}
+            <div class="buttons">
+                <a href="{% url 'category_update' category.name %}"><button>UPDATE</button></a>
+                <a href="{% url 'category_delete' category.name %}"><button>DELETE</button></a>        
+            </div> 
+            {% endif %}   
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
