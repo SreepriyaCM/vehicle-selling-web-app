@@ -49,7 +49,8 @@ class Registerform(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model=Profiles
-        fields='__all__'
+        fields=['name','email','mob_no','address']
+        
 
 
 class VehicleForm(forms.ModelForm):
