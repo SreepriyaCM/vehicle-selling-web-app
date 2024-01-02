@@ -23,12 +23,6 @@ class Vehicles(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     best_selling=models.BooleanField(default=False,null=True)
     slug=models.SlugField()
-
-    def calculate_current_price(self):
-        current_year=timezone.now().year
-        age=current_year - self.manufacture_year
-        adjusted_price = self.base_price - (age * 1000) - (self.mileage * 0.1)
-        return max(adjusted_price,0) 
     
     def __str__(self):
         return self.name
